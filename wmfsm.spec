@@ -25,7 +25,7 @@ partycjach.
 %setup -q
 
 %build
-make -C %{name} \
+%{__make} -C %{name} \
 	CFLAGS="$RPM_OPT_FLAGS -I/usr/X11R6/include"
 
 %install
