@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=wmfsm
+Comment=Disk free space Monitor
+Comment[pl]=Monitor wolnej przestrzeni dysku
+Exec=wmfsm
+Terminal=0
+Type=Application
