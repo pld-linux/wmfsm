@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://www.cs.mcgill.ca/~cgray4/%{name}-%{version}.tar.gz
+# Source0-md5:	08130caa525fc7b5ca07558affcd783f
 Source1:	%{name}.desktop
 URL:		http://www.cs.mcgill.ca/~cgray4/
 BuildRequires:	XFree86-devel
