@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=wmFsm
+Name=WmFsm
 Comment=Disk free space Monitor
 Comment[pl]=Monitor wolnej przestrzeni dysku
 Exec=wmfsm
