@@ -10,10 +10,9 @@ Source0:	http://wmfsm.netpedia.net/%{name}-%{version}.tar.gz
 Source1:	wmfsm.desktop
 BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
-%define		_applnkdir	%{_datadir}/applnk
 
 %description
 wmfsm shows the percentage of free space across your file systems.
