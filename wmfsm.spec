@@ -1,13 +1,14 @@
 Summary:	Disk free space monitor for WindowMaker
 Summary(pl):	Monitor wolnej przestrzeni dysków dla WindowMakera
 Name:		wmfsm
-Version: 	0.31
+Version:	0.31
 Release:	1
-Copyright:	GPL
+License:	GPL
 Group:		X11/Window Managers/Tools
+Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Source0:	http://wmfsm.netpedia.net/%{name}-%{version}.tar.gz
-Source1:	wmfsm.desktop
+Source1:	%{name}.desktop
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -17,7 +18,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 wmfsm shows the percentage of free space across your file systems.
 
 %description -l pl
-wmfsm wy¶wietla ilo¶æ wolnego miejsca w procentach na zamontowanych 
+wmfsm wy¶wietla ilo¶æ wolnego miejsca w procentach na zamontowanych
 partycjach.
 
 %prep
@@ -25,13 +26,13 @@ partycjach.
 
 %build
 %{__make} -C %{name} \
-	CFLAGS="$RPM_OPT_FLAGS -I/usr/X11R6/include"
+	CFLAGS="%{rpmcflags} -I%{_includedir}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_applnkdir}/DockApplets} 
 
-install -s %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
+install %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
