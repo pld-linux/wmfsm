@@ -1,8 +1,8 @@
 Summary:	Disk free space monitor for WindowMaker
 Summary(pl):	Monitor wolnej przestrzeni dysków dla WindowMakera
 Name:		wmfsm
-Version: 	0.27
-Release:	2
+Version: 	0.31
+Release:	1
 Copyright:	GPL
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
@@ -12,7 +12,8 @@ BuildRequires:	XFree86-devel
 BuildRequires:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
-%define _prefix	/usr/X11R6
+%define 	_prefix		/usr/X11R6
+%define		_sysconfdir	/etc/X11
 
 %description
 wmfsm shows the percentage of free space across your file systems.
@@ -30,18 +31,20 @@ make -C %{name} \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},/etc/X11/applnk/DockApplets} 
-install -s %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_sysconfdir}/applnk/DockApplets} 
 
-gzip -9nf BUGS CHANGES
+install -s %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/applnk/DockApplets
+
+gzip -9nf BUGS CHANGES README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {BUGS,CHANGES}.gz
+%doc {BUGS,CHANGES,README}.gz wmfsm/wmfsmrc.sample
 %attr(755,root,root) %{_bindir}/%{name}
 
-/etc/X11/applnk/DockApplets/wmfsm.desktop
+%{_sysconfdir}/applnk/DockApplets/wmfsm.desktop
