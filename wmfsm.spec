@@ -27,7 +27,7 @@ partycjach.
 
 %build
 aclocal
-autoconf
+%{__autoconf}
 %configure
 %{__make} CFLAGS="%{rpmcflags} -I%{_includedir}"
 
