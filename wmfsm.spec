@@ -38,14 +38,12 @@ rm -rf $RPM_BUILD_ROOT
 
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf AUTHORS ChangeLog NEWS README TODO
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz wmfsm/wmfsmrc.sample
+%doc AUTHORS ChangeLog NEWS README TODO wmfsm/wmfsmrc.sample
 %attr(755,root,root) %{_bindir}/%{name}
 
 #%{_applnkdir}/DockApplets/wmfsm.desktop
