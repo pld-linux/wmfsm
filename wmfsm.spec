@@ -45,4 +45,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO wmfsm/wmfsmrc.sample
 %attr(755,root,root) %{_bindir}/%{name}
 
-#%{_applnkdir}/DockApplets/wmfsm.desktop
+#%%{_applnkdir}/DockApplets/wmfsm.desktop
