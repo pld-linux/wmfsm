@@ -3,6 +3,6 @@ Name=WmFsm
 Comment=Disk free space Monitor
 Comment[pl]=Monitor wolnej przestrzeni dysku
 Exec=wmfsm
-Terminal=0
+Terminal=false
 Type=Application
 # vi: encoding=utf-8
