@@ -1,12 +1,12 @@
 Summary:	Disk free space monitor for WindowMaker
 Summary(pl):	Monitor wolnej przestrzeni dysków dla WindowMakera
 Name:		wmfsm
-Version:	0.33
+Version:	0.34
 Release:	1
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://www.cs.ubc.ca/~cmg/%{name}-%{version}.tar.gz
-# Source0-md5:	08130caa525fc7b5ca07558affcd783f
+# Source0-md5:	5ec81127146d8340a698cc5e26a66e43
 Source1:	%{name}.desktop
 URL:		http://www.cs.ubc.ca/~cmg/
 BuildRequires:	XFree86-devel
