@@ -5,15 +5,14 @@ Version:	0.33
 Release:	1
 License:	GPL
 Group:		X11/Window Managers/Tools
-Source0:	http://www.cs.mcgill.ca/~cgray4/%{name}-%{version}.tar.gz
+Source0:	http://www.cs.ubc.ca/~cmg/%{name}-%{version}.tar.gz
 # Source0-md5:	08130caa525fc7b5ca07558affcd783f
 Source1:	%{name}.desktop
-URL:		http://www.cs.mcgill.ca/~cgray4/
+URL:		http://www.cs.ubc.ca/~cmg/
 BuildRequires:	XFree86-devel
-BuildRequires:	automake
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 wmfsm shows the percentage of free space across your file systems.
@@ -29,12 +28,14 @@ partycjach.
 %{__aclocal}
 %{__autoconf}
 %configure
-%{__make} CFLAGS="%{rpmcflags} -I%{_includedir}"
+%{__make} \
+	CFLAGS="%{rpmcflags} -I%{_includedir}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} DESTDIR=$RPM_BUILD_ROOT install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
