@@ -2,11 +2,12 @@ Summary:	Disk free space monitor for WindowMaker
 Summary(pl):	Monitor wolnej przestrzeni dysków dla WindowMakera
 Name:		wmfsm
 Version: 	0.27
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
-Source:		http://wmfsm.netpedia.net/%{name}-%{version}.tar.gz
+Source0:	http://wmfsm.netpedia.net/%{name}-%{version}.tar.gz
+Source1:	wmfsm.desktop
 BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -25,12 +26,13 @@ partycjach.
 
 %build
 make -C %{name} \
-	CFLAGS="$RPM_OPT_FLAGS"
+	CFLAGS="$RPM_OPT_FLAGS -I/usr/X11R6/include"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir} 
+install -d $RPM_BUILD_ROOT{%{_bindir},/etc/X11/applnk/DockApplets} 
 install -s %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
 gzip -9nf BUGS CHANGES
 
@@ -41,6 +43,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc {BUGS,CHANGES}.gz
 %attr(755,root,root) %{_bindir}/%{name}
+
+/etc/X11/applnk/DockApplets/wmfsm.desktop
 
 %changelog
 * Tue May 25 1999 Piotr Czerwiñski <pius@pld.org.pl> 
