@@ -2,7 +2,7 @@ Summary:	Disk free space monitor for WindowMaker
 Summary(pl):	Monitor wolnej przestrzeni dysków dla WindowMakera
 Name:		wmfsm
 Version:	0.31
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
@@ -35,7 +35,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_applnkdir}/DockApplets}
 
 install %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 gzip -9nf BUGS CHANGES README
 
@@ -47,4 +47,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz wmfsm/wmfsmrc.sample
 %attr(755,root,root) %{_bindir}/%{name}
 
-%{_applnkdir}/DockApplets/wmfsm.desktop
+#%{_applnkdir}/DockApplets/wmfsm.desktop
