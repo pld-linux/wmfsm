@@ -2,7 +2,7 @@ Summary:	Disk free space monitor for WindowMaker
 Summary(pl):	Monitor wolnej przestrzeni dysków dla WindowMakera
 Name:		wmfsm
 Version:	0.34
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://www.cs.ubc.ca/~cmg/%{name}-%{version}.tar.gz
@@ -33,11 +33,12 @@ partycjach.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/docklets
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -46,5 +47,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO wmfsm/wmfsmrc.sample
 %attr(755,root,root) %{_bindir}/%{name}
-
-#%%{_applnkdir}/DockApplets/wmfsm.desktop
+%{_desktopdir}/docklets/wmfsm.desktop
+%{_mandir}/man1/*
