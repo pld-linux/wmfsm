@@ -1,8 +1,8 @@
 Summary:	Disk free space monitor for WindowMaker
 Summary(pl):	Monitor wolnej przestrzeni dysków dla WindowMakera
 Name:		wmfsm
-Version:	0.31
-Release:	2
+Version:	0.33
+Release:	1
 License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
@@ -11,6 +11,8 @@ Source0:	http://www.cs.mcgill.ca/~cgray4/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 URL:		http://www.cs.mcgill.ca/~cgray4/
 BuildRequires:	XFree86-devel
+BuildRequires:	automake
+BuildRequires:	autoconf
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -26,18 +28,19 @@ partycjach.
 %setup -q
 
 %build
-%{__make} -C %{name} \
-	CFLAGS="%{rpmcflags} -I%{_includedir}"
+aclocal
+autoconf
+%configure
+%{__make} CFLAGS="%{rpmcflags} -I%{_includedir}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_applnkdir}/DockApplets} 
 
-install %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
 
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf BUGS CHANGES README
+gzip -9nf AUTHORS ChangeLog NEWS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
