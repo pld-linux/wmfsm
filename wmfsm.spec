@@ -26,7 +26,7 @@ partycjach.
 %setup -q
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure
 %{__make} CFLAGS="%{rpmcflags} -I%{_includedir}"
