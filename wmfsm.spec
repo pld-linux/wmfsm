@@ -1,5 +1,5 @@
 Summary:	Disk free space monitor for WindowMaker
-Summary(pl):	Monitor wolnej przestrzeni dysków dla WindowMakera
+Summary(pl.UTF-8):   Monitor wolnej przestrzeni dyskÃ³w dla WindowMakera
 Name:		wmfsm
 Version:	0.34
 Release:	3
@@ -17,8 +17,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 wmfsm shows the percentage of free space across your file systems.
 
-%description -l pl
-wmfsm wy¶wietla ilo¶æ wolnego miejsca w procentach na zamontowanych
+%description -l pl.UTF-8
+wmfsm wyÅ›wietla iloÅ›Ä‡ wolnego miejsca w procentach na zamontowanych
 partycjach.
 
 %prep
