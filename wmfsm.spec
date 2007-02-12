@@ -1,5 +1,5 @@
 Summary:	Disk free space monitor for WindowMaker
-Summary(pl.UTF-8):   Monitor wolnej przestrzeni dysków dla WindowMakera
+Summary(pl.UTF-8):	Monitor wolnej przestrzeni dysków dla WindowMakera
 Name:		wmfsm
 Version:	0.34
 Release:	3
